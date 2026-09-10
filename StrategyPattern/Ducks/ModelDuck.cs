@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace StrategyPattern.Ducks
 {
-    internal class MallardDuck : Duck
+    internal class ModelDuck : Duck
     {
-        public MallardDuck()
+        public ModelDuck()
         {
-            flyBehavior = new FlyWithWings();
-            quackBehavior = new QuackPossible();
+            flyBehavior = new FlyNoWay();
+            quackBehavior = new QuackMissionImpossible();
             swimBehavior = new CanSwim();
         }
         public override void Display()
         {
-            Console.WriteLine("I'm a Mallard Duck");
+            Console.WriteLine("I'm a Model Duck");
         }
     }
 }

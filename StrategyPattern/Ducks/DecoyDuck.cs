@@ -1,4 +1,7 @@
-﻿using System;
+﻿using StrategyPattern.Interfaces.FlyBehavior;
+using StrategyPattern.Interfaces.QuackBehavior;
+using StrategyPattern.Interfaces.SwimBehavior;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +13,9 @@ namespace StrategyPattern.Ducks
     {
         public DecoyDuck()
         {
-
+            flyBehavior = new FlyNoWay();
+            quackBehavior = new QuackMissionImpossible();
+            swimBehavior = new Sinking();
         }
         public override void Display()
         {

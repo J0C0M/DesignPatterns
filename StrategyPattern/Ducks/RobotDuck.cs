@@ -1,4 +1,4 @@
-﻿using StrategyPattern.Interfaces.FlyBehavior;
+using StrategyPattern.Interfaces.FlyBehavior;
 using StrategyPattern.Interfaces.QuackBehavior;
 using StrategyPattern.Interfaces.SwimBehavior;
 using System;
@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace StrategyPattern.Ducks
 {
-    internal class MallardDuck : Duck
+    internal class RobotDuck : Duck
     {
-        public MallardDuck()
+        public RobotDuck()
         {
-            flyBehavior = new FlyWithWings();
+            flyBehavior = new FlyWithRocket();
             quackBehavior = new QuackPossible();
-            swimBehavior = new CanSwim();
+            swimBehavior = new Sinking();
         }
         public override void Display()
         {
-            Console.WriteLine("I'm a Mallard Duck");
+            Console.WriteLine("I'm a Robot Duck!");
         }
     }
 }
