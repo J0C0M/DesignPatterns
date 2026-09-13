@@ -12,19 +12,21 @@ namespace ObserverPattern.Displays
         private float temperature;
         private float humidity;
         private Subject weatherData;
-        public CurrentConditionDisplay(Subject weatherData) 
-        { 
-            // Set the field and register itself with the weatherdata subject
+        public CurrentConditionDisplay(Subject weatherData)
+        {
+            this.weatherData = weatherData;
+            weatherData.RegisterObserver(this);
         }
         public void Update(float temp, float humidity, float pressure)
         {
-            // Set the correct fields with the relevant parameters
+            this.temperature = temp;
+            this.humidity = humidity;
             Display();
         }
 
         public void Display()
         {
-            // Print the current conditions of the weather
+            Console.WriteLine($"Current weather conditions: {temperature}C degrees & {humidity}% humidity");
         }
     }
 }
