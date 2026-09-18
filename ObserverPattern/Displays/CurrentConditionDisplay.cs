@@ -1,30 +1,14 @@
-﻿using ObserverPattern.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ObserverPattern.Interfaces;
 
 namespace ObserverPattern.Displays
 {
-    internal class CurrentConditionDisplay : Observer, DisplayElement
+    internal class CurrentConditionDisplay : WeatherDisplay
     {
-        private float temperature;
-        private float humidity;
-        private Subject weatherData;
-        public CurrentConditionDisplay(Subject weatherData)
+        public CurrentConditionDisplay(Subject weatherData) : base(weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
-        }
-        public void Update(float temp, float humidity, float pressure)
-        {
-            this.temperature = temp;
-            this.humidity = humidity;
-            Display();
         }
 
-        public void Display()
+        public override void Display()
         {
             Console.WriteLine($"Current weather conditions: {temperature}C degrees & {humidity}% humidity");
         }

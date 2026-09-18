@@ -1,9 +1,4 @@
 ﻿using ObserverPattern.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ObserverPattern.Displays
 {
@@ -12,9 +7,10 @@ namespace ObserverPattern.Displays
         protected float temperature;
         protected float humidity;
         protected float pressure;
-        private Subject weatherData;
-        public WeatherDisplay(Subject weatherData)
+        protected Subject weatherData;
+        protected WeatherDisplay(Subject weatherData)
         {
+            this.weatherData = weatherData;
             weatherData.RegisterObserver(this);
         }
         public virtual void Update(float temp, float humidity, float pressure)

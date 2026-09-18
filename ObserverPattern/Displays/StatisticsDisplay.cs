@@ -1,28 +1,20 @@
-﻿using ObserverPattern.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ObserverPattern.Interfaces;
 
 namespace ObserverPattern.Displays
 {
-    internal class StatisticsDisplay : Observer, DisplayElement
+    internal class StatisticsDisplay : WeatherDisplay
     {
-        private float temperature;
         private float sumTemperature = 0;
         private float maxTemp = 0;
         private float minTemp = 0;
         private int countUpdated = 0;
-        private Subject weatherData;
-        public StatisticsDisplay(Subject weatherData)
+
+        public StatisticsDisplay(Subject weatherData) : base(weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
         }
-        public void Update(float temp, float humidity, float pressure)
+
+        public override void Update(float temp, float humidity, float pressure)
         {
-            this.temperature = temp;
             sumTemperature += temp;
             countUpdated++;
 
@@ -35,10 +27,10 @@ namespace ObserverPattern.Displays
                 minTemp = temp;
             }
 
-            Display();
+            base.Update(temp, humidity, pressure);
         }
 
-        public void Display()
+        public override void Display()
         {
             float average = sumTemperature / countUpdated;
             Console.WriteLine($"Avg temp = {average}, max temp = {maxTemp}, min temp ={minTemp}");
