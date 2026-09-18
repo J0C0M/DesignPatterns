@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace DecoratorPattern.Condiments
 {
-    internal class Whip : CondimentDecorator
+    internal class Water : CondimentDecorator
     {
-        public Whip(Beverage beverage)
+        public Water(Beverage beverage)
         {
             this.baseBeverage = beverage;
         }
 
         public override double cost()
         {
-            return 0.10 + SizeSurcharge() + baseBeverage.cost();
+            return 0.90 + SizeSurcharge() + baseBeverage.cost();
         }
 
         public override string GetDescription()
         {
-            return baseBeverage.GetDescription() + ", Whip";
+            return baseBeverage.GetDescription() + ", Water";
         }
     }
 }
