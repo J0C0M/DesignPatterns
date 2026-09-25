@@ -18,7 +18,7 @@ namespace DecoratorPattern.Beverages
         }
         public override double cost()
         {
-            return 15.99;
+            return 15.99 + SizeSurcharge();
         }
     }
 }

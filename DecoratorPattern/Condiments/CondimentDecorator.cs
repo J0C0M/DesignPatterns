@@ -15,19 +15,6 @@ namespace DecoratorPattern.Condiments
             set { baseBeverage.Size = value; }
         }
 
-        protected double SizeSurcharge()
-        {
-            switch (Size)
-            {
-                case Size.GRANDE:
-                    return 0.05;
-                case Size.VENDI:
-                    return 0.10;
-                default:
-                    return 0.0;
-            }
-        }
-
         public abstract override string GetDescription();
 
     }
