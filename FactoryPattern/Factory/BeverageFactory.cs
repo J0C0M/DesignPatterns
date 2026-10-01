@@ -6,7 +6,15 @@ namespace FactoryPattern.Factory
 {
     internal class BeverageFactory
     {
-        public Beverage CreateFactoryBeverage(CoffeeType type, Size size)
+        public Beverage OrderDrink(CoffeeType type, Size size)
+        {
+            Beverage beverage = CreateFactoryBeverage(type, size);
+
+            Console.WriteLine(CoffeName(type) + ": " + beverage.GetDescription() + beverage.cost().ToString(" #.##") + " euro");
+            return beverage;
+        }
+
+        private Beverage CreateFactoryBeverage(CoffeeType type, Size size)
         {
             Beverage beverage = type switch
             {
@@ -45,7 +53,7 @@ namespace FactoryPattern.Factory
             return beverage;
         }
 
-        public string CoffeName(CoffeeType type)
+        private string CoffeName(CoffeeType type)
         {
             return type switch
             {
