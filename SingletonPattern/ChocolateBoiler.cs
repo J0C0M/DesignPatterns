@@ -8,6 +8,8 @@ namespace Singleton
 {
     internal class ChocolateBoiler
     {
+        private static readonly ChocolateBoiler instance = new ChocolateBoiler();
+
         private bool empty;
         private bool boiled;
 
@@ -15,10 +17,15 @@ namespace Singleton
         public bool IsBoiled { get { return this.boiled; } }
 
         // This code is only started when the boiler is empty
-        public ChocolateBoiler()
+        private ChocolateBoiler()
         {
             empty = true;
             boiled = false;
+        }
+
+        public static ChocolateBoiler GetInstance()
+        {
+            return instance;
         }
         // To fill the boiler it must be empty and once it is full, we set the empty and boiled flag
         public void fill()
