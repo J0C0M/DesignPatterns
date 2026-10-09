@@ -13,25 +13,10 @@
             TheaterLights lights = new TheaterLights();
             Tuner tuner = new Tuner(amp);
 
+            HomeTheaterFacade homeTheater = new HomeTheaterFacade(amp, tuner, dvdPlayer, cdPlayer, projector, screen, lights, popcornPopper);
 
-            popcornPopper.On();
-            popcornPopper.Pop();
-
-            lights.Dim(10);
-
-            screen.Down();
-
-            projector.On();
-            projector.SetInput(dvdPlayer);
-            projector.WideScreenMode();
-
-            amp.On();
-            amp.SetDvd(dvdPlayer);
-            amp.SetSurroundSound();
-            amp.SetVolume(5);
-
-            dvdPlayer.On();
-            dvdPlayer.Play("Die Hard");
+            homeTheater.WatchMovie("Die Hard");
+            homeTheater.EndMovie();
         }
     }
 }

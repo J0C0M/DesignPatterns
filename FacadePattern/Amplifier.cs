@@ -14,12 +14,12 @@ namespace FacadePattern
 
         public void On()
         {
-
+            Console.WriteLine("Amplifier on");
         }
 
         public void Off()
         {
-
+            Console.WriteLine("Amplifier off");
         }
         public void SetCd(CdPlayer cdPlayer)
         {
@@ -28,6 +28,7 @@ namespace FacadePattern
         public void SetDvd(DvdPlayer dvdPlayer)
         {
             this._dvdPlayer = dvdPlayer;
+            Console.WriteLine("Amplifier setting dvd player");
         }
         public void SetStereoSound()
         {
@@ -35,7 +36,7 @@ namespace FacadePattern
         }
         public void SetSurroundSound()
         {
-
+            Console.WriteLine("amplifier surround sound on");
         }
         public void SetTuner(Tuner tuner)
         {
@@ -43,7 +44,7 @@ namespace FacadePattern
         }
         public void SetVolume(int volume)
         {
-
+            Console.WriteLine($"Amplifier setting volume to {volume}");
         }
 
     }
