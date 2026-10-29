@@ -16,14 +16,26 @@ namespace TemplateMethodPattern
 
             CaffeineBeverage tea = new Tea();
             CaffeineBeverage coffee = new Coffee();
+            CaffeineBeverage chocolateMilk = new ChocolateMilk();
 
             tea.PrepareRecipe();
             coffee.PrepareRecipe();
+            chocolateMilk.PrepareRecipe();
 
             Console.WriteLine("\n\n Now with hooked classes\n\n");
 
+            CaffeineBeverageWithHook teaWithHook = new TeaWithHook();
+            CaffeineBeverageWithHook coffeeWithHook = new CoffeeWithHook();
+            CaffeineBeverageWithHook chocolateMilkWithHook = new ChocolateMilkWithHook();
+
+            teaWithHook.PrepareRecipe();
+            coffeeWithHook.PrepareRecipe();
+            chocolateMilkWithHook.PrepareRecipe();
+
+            Console.WriteLine("\n\n Now sorting ducks\n\n");
+
             // You'll need this method for the second part of the Template Method Pattern
-            /*Duck[] ducks =
+            Duck[] ducks =
             {
                 new Duck("Daffy", 8),
                 new Duck("Dewey", 2),
@@ -34,7 +46,12 @@ namespace TemplateMethodPattern
             };
 
             Console.WriteLine("Before sorting:");
-            Display(ducks);*/
+            Display(ducks);
+
+            Array.Sort(ducks);
+
+            Console.WriteLine("After sorting:");
+            Display(ducks);
         }
 
         // You'll need this method for the second part of the Template Method Pattern
