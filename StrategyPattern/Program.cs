@@ -1,18 +1,35 @@
-﻿using ObserverPattern.Displays;
+﻿using System.Security.Cryptography.X509Certificates;
+using StrategyPattern.Ducks;
+using StrategyPattern.Interfaces.FlyBehavior;
+using StrategyPattern.Interfaces.QuackBehavior;
 
-namespace ObserverPattern
+namespace StrategyPattern
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            WeatherData weatherData = new WeatherData();
-
-            // Create instances of displays 
-
-            weatherData.SetMeasurements(28, 65, 30.4f);
-            weatherData.SetMeasurements(29, 70, 29.2f);
-            weatherData.SetMeasurements(30, 90, 29.2f); 
+            Duck mallardDuck = new MallardDuck();
+            Duck redheadDuck = new RedheadDuck();
+            Duck decoyDuck = new DecoyDuck();
+            Duck rubberDuck = new RubberDuck();
+            Duck robotDuck = new RobotDuck();
+            Duck ModelDuck = new ModelDuck();
+            MakeDuckPerformAll(mallardDuck);
+            MakeDuckPerformAll(redheadDuck);
+            MakeDuckPerformAll(decoyDuck);
+            MakeDuckPerformAll(rubberDuck);
+            MakeDuckPerformAll(robotDuck);
+            MakeDuckPerformAll(ModelDuck);
+            ModelDuck.SetflyBehavior(new FlyWithRocket());
+            ModelDuck.PerformFly();
+        }
+        public static void MakeDuckPerformAll(Duck duck)
+        {
+            duck.Display();
+            duck.PerformFly();
+            duck.PerformQuack();
+            duck.PerformSwim();
         }
     }
 }
